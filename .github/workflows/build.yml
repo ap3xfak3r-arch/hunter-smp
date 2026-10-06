@@ -3,6 +3,9 @@ on: [push, workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "hunter-smp-template-1.21.11 (1)"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -13,4 +16,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: mod
-          path: build/libs/*.jar
+          path: "hunter-smp-template-1.21.11 (1)/build/libs/*.jar"
