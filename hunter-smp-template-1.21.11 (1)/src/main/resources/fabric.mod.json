@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "huntersmp",
+  "version": "1.0.0",
+  "name": "Hunter SMP",
+  "environment": "server",
+  "entrypoints": { "main": ["com.huntersmp.HunterSmp"] },
+  "depends": { "fabricloader": ">=0.17.0", "minecraft": "~1.21.11", "fabric-api": "*" }
+}
