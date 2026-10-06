@@ -3,7 +3,7 @@ package com.huntersmp;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.LongArgumentType;
 import com.mojang.brigadier.tree.LiteralCommandNode;
-import net.minecraft.commands.CommandSourceStack;
+   import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -34,7 +34,7 @@ public class HunterCommands {
                 }))));
 
         // Admin command - the only "free money" source besides selling
-        d.register(literal("eco").requires(s -> s.hasPermission(2))
+          d.register(literal("eco").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
                 .then(literal("give").then(argument("player", EntityArgument.player()).then(argument("amount", LongArgumentType.longArg(0)).executes(c -> {
                     ServerPlayer t = EntityArgument.getPlayer(c, "player");
                     Money.add(t.getUUID(), LongArgumentType.getLong(c, "amount")); return 1;
