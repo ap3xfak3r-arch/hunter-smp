@@ -11,7 +11,8 @@ public class HunterSmp implements ModInitializer {
     @Override
     public void onInitialize() {
         Prices.load();
-        Money.load();   
+        Money.load();
+        Tp.init();
         BalTop.init();
         ServerLifecycleEvents.SERVER_STARTED.register(Auction::load);
         ServerLifecycleEvents.SERVER_STOPPING.register(s -> { Money.save(); Auction.save(s); });
