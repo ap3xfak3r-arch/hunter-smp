@@ -16,6 +16,10 @@ public class Prices {
     public static Map<String, List<String>> categories = new LinkedHashMap<>();
     public static Map<String, String> icons = new LinkedHashMap<>();
     static final Map<String, Item> ITEMS = new HashMap<>();
+       static final long DEFAULT_BUY = 20, DEFAULT_SELL = 10;
+   static final List<String> BANNED = List.of("spawn_egg", "command_block", "barrier", "bedrock", "structure_", "jigsaw",
+           "debug_stick", "light", "knowledge_book", "spawner", "reinforced_deepslate", "end_portal", "test_",
+           "petrified", "farmland", "dirt_path", "chorus_plant", "frogspawn", "budding", "infested", "player_head", "minecraft:air");
 
     static class Data {
         Map<String, Long> sell = new LinkedHashMap<>();
