@@ -65,19 +65,19 @@ public class Prices {
                 }
                 Files.writeString(FILE, GSON.toJson(d));
             }
-            sell = d.sell; shop = d.shop; categories = d.categories; icons = d.icons;
+                        sell = d.sell; shop = d.shop; categories = d.categories; icons = d.icons;
             Set<String> used = new HashSet<>();
-for (List<String> l : categories.values()) used.addAll(l);
-List<String> rest = new ArrayList<>();
-for (String id : ITEMS.keySet()) {
-    if (used.contains(id) || BANNED.stream().anyMatch(id::contains)) continue;
-    rest.add(id);
-}
-Collections.sort(rest);
-for (String id : rest) { shop.putIfAbsent(id, DEFAULT_BUY); sell.putIfAbsent(id, DEFAULT_SELL); }
-categories.put("Everything Else", rest);
-icons.put("Everything Else", "minecraft:chest");
-        } catch (Exception e) { e.printStackTrace();  
+            for (List<String> l : categories.values()) used.addAll(l);
+            List<String> rest = new ArrayList<>();
+            for (String id : ITEMS.keySet()) {
+                if (used.contains(id) || BANNED.stream().anyMatch(id::contains)) continue;
+                rest.add(id);
+            }
+            Collections.sort(rest);
+            for (String id : rest) { shop.putIfAbsent(id, DEFAULT_BUY); sell.putIfAbsent(id, DEFAULT_SELL); }
+            categories.put("Everything Else", rest);
+            icons.put("Everything Else", "minecraft:chest");
+        } catch (Exception e) { e.printStackTrace(); }
     }
 
     public static Item item(String id) { return ITEMS.get(id); }
