@@ -16,6 +16,7 @@ public class HunterCommands {
     static void msg(ServerPlayer p, String s) { p.sendSystemMessage(Component.literal(s)); }
 
     public static void register(CommandDispatcher<CommandSourceStack> d) {
+          BalTop.register(d);
         d.register(literal("bal").executes(c -> {
             ServerPlayer p = c.getSource().getPlayerOrException();
             msg(p, "§aBalance: §f" + Money.fmt(Money.get(p.getUUID())));
