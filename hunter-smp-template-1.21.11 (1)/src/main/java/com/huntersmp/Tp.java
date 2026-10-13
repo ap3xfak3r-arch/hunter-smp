@@ -66,6 +66,7 @@ public class Tp {
 
     static int send(ServerPlayer from, ServerPlayer to, boolean here) {
         if (from == to) { msg(from, "§cYou can't send a request to yourself."); return 0; }
+           if (Combat.blocked(from)) return 0;
         reqs.removeIf(r -> r.from.equals(from.getUUID()) && r.to.equals(to.getUUID()));
         Req r = new Req();
         r.from = from.getUUID(); r.to = to.getUUID(); r.here = here;
