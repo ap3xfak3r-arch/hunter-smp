@@ -85,6 +85,8 @@ public class Tp {
         reqs.remove(r);
         ServerPlayer sender = online(me, r.from);
         if (sender == null) { msg(me, "§cThat player is offline."); return 0; }
+           if (Combat.blocked(me)) return 0;
+        if (Combat.inCombat(sender)) { msg(me, "§cThat player is in combat."); return 0; }
         ServerPlayer mover = r.here ? me : sender;
         ServerPlayer dest = r.here ? sender : me;
         msg(me, "§aRequest accepted.");
