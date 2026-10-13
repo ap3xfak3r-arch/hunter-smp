@@ -12,6 +12,7 @@ public class HunterSmp implements ModInitializer {
     public void onInitialize() {
         Prices.load();
         Money.load();
+        Combat.init();
         Tp.init();
         BalTop.init();
         ServerLifecycleEvents.SERVER_STARTED.register(Auction::load);
