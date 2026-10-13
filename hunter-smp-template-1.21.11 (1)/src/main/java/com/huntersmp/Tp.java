@@ -91,7 +91,7 @@ public class Tp {
         ServerPlayer dest = r.here ? sender : me;
         msg(me, "§aRequest accepted.");
         msg(sender, "§a" + name(me) + " accepted your request.");
-        warmup(mover, () -> tpTo(mover, dest));
+           tpTo(mover, dest);
         return 1;
     }
 
