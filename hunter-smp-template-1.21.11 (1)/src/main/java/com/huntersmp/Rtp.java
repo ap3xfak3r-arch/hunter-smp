@@ -28,6 +28,7 @@ public class Rtp {
     }
 
     public static void openMenu(ServerPlayer p) {
+           if (Combat.blocked(p)) return;
         SimpleContainer c = new SimpleContainer(54);
         c.setItem(20, icon(new ItemStack(Items.GRASS_BLOCK), "§aOverworld", "§7Click to teleport"));
         c.setItem(22, icon(new ItemStack(Items.NETHERRACK), "§cNether", "§7Click to teleport"));
@@ -87,6 +88,7 @@ public class Rtp {
     }
 
     static int toggle(ServerPlayer p) {
+           if (Combat.blocked(p)) return 0;
         if (queue.remove(p.getUUID())) { Tp.msg(p, "§eYou left the RTP queue."); return 1; }
         ServerPlayer other = null;
         while (other == null && !queue.isEmpty())
